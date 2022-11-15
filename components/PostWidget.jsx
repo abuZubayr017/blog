@@ -16,6 +16,7 @@ function PostWidget({categories, slug}) {
       getRecentPosts()
         .then(res => setRelatedPosts(res))
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug])
   return (
     <div className='bg-white rounded-lg shadow-lg p-8 mb-8'>

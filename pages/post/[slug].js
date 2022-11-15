@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react'
-import { Author, Categories, Comments, CommentsForm, Loader, PostDetail, PostWidget } from '../../components';
+import { Author, Categories, Comments, CommentsForm, Loader, NewPost, PostDetail, PostWidget } from '../../components';
 import { GetPostDetails, getPosts } from '../../services';
 
 
@@ -25,6 +25,7 @@ function PostDetails({post}) {
                 <Author author={post.author} />
                 <CommentsForm slug={post.slug} />
                 <Comments slug={post.slug} />
+                <NewPost slug={post.slug} categories={post.categories.map(category => category.slug)}/>
             </div>
         </div>
     </div>

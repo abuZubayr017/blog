@@ -60,7 +60,7 @@ function FeaturedPosts() {
         <Carousel 
             showDots={true} 
             autoPlay={true} 
-            autoPlaySpeed={3000} 
+            autoPlaySpeed={2000} 
             infinite 
             customRightArrow={customRightArrow} 
             customLeftArrow={customLeftArrow} 

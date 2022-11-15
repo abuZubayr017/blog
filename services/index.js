@@ -147,6 +147,35 @@ export const getSimilarPosts = async(categories, slug) => {
     return result.posts
 }
 
+export const getSingleSimilarPosts = async(categories, slug) => {
+    const query = gql`
+        query GetPostDetails($slug: String!, $categories: [String!]){
+            posts(
+                where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
+                first:1
+            ) {
+                title
+                featuredImage{
+                    url
+                }
+                createdAt
+                slug
+                author {
+                        bio
+                        name
+                        id
+                        photo {
+                            url
+                        }
+                }
+            }
+        }
+    `
+
+    const result = await request(graphqlAPI, query, {categories, slug})
+    return result.posts
+}
+
 export const getCategories = async() => {
     const query = gql`
         query getCategories{
@@ -187,6 +216,8 @@ export const getComments = async(slug) => {
     return result.comments
 }
 
+
+
 export const getFeaturedPosts = async() => {
     const query = gql`
         query GetCategoryPost() {
@@ -210,3 +241,4 @@ export const getFeaturedPosts = async() => {
     const result = await request(graphqlAPI, query)
     return result.posts
 }
+

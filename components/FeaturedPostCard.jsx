@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 
 const FeaturedPostCard = ({post}) => {
-  console.log(post)
+
   return (
     <div className="relative h-72">
     <div className="absolute rounded-lg bg-center bg-no-repeat bg-cover shadow-md inline-block w-full h-72" style={{ backgroundImage: `url('${post.featuredImage.url}')` }} />
@@ -15,11 +15,11 @@ const FeaturedPostCard = ({post}) => {
       <div className="flex items-center absolute bottom-5 w-full justify-center">
         <Image
           unoptimized
+          src={post.author.photo.url}
           alt={post.author.name}
           height={30}
           width={30}
           className="align-middle drop-shadow-lg rounded-full"
-          src={post.author.photo.url}
         />
         <p className="inline align-middle text-white text-shadow ml-2 font-medium">{post.author.name}</p>
       </div>
