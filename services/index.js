@@ -152,7 +152,7 @@ export const getSingleSimilarPosts = async(categories, slug) => {
         query GetPostDetails($slug: String!, $categories: [String!]){
             posts(
                 where: {slug_not: $slug, AND: {categories_some: {slug_in: $categories}}}
-                first:1
+                last:1
             ) {
                 title
                 featuredImage{
